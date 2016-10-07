@@ -1,4 +1,4 @@
-[![Travis](https://img.shields.io/travis/wwerner/ww.net.svg?maxAge=2592000)]()
+[![Build Status](https://travis-ci.org/wwerner/ww.net.svg?branch=master)](https://travis-ci.org/wwerner/ww.net)
 
 # ww.net
 Stuff that runs on wolfgang-werner.net.
