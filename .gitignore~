@@ -30,6 +30,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-### vi ###
-*.un~
