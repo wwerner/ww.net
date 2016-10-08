@@ -1,6 +1,6 @@
-FROM java:8
+FROM frolvlad/alpine-oraclejdk8:slim
 VOLUME /tmp
 ADD target/ww-net.jar app.jar
-RUN bash -c 'touch /app.jar'
+RUN sh -c 'touch /app.jar'
 EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
