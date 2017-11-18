@@ -4,10 +4,8 @@
 	<style>
 		html {
 			margin: 0;
+			background: url("bg1.jpg") no-repeat center center ;
 			background-size: cover;
-			background: url("bg1.jpg") no-repeat center center fixed;
-			background-blend-mode: darken;
-			transition: 0.5s;
 		}
 		body { margin: 0; }
 
@@ -30,27 +28,6 @@
 		}
 
 	</style>
-	<script type="text/javascript">
-		var images = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg']
-		var secs = 4;
-		images.forEach(function(img){
-			new Image().src = img; 
-		});
-
-		function backgroundSequence() {
-			window.clearTimeout();
-			var k = 0;
-			for (i = 0; i < images.length; i++) {
-				setTimeout(function(){ 
-					document.documentElement.style.background = "url(" + images[k] + ") no-repeat center center fixed";
-					document.documentElement.style.backgroundSize ="cover";
-					if ((k + 1) === images.length) { setTimeout(function() { backgroundSequence() }, (secs * 1000))} else { k++; }			
-				}, (secs * 1000) * i)	
-			}
-		}
-		backgroundSequence();
-
-	</script>
 </head>
 
 <body>
