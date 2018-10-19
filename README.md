@@ -8,7 +8,7 @@ This is just to play around with the following setup/process:
 * Spring Boot App (w/ MVC and handlebars templating)
 * Wrapped into a Docker Container, but deployed on heroku using the java build pack
 * Built using Travis CI, but also on heroku
-* ~~Run on AWS EC2~~ Currently being migrated to heroku
-* DNS via AWS Route 53
+* ~~Run on AWS EC2~~ Heroku hobby dynos
+* DNS ~~via AWS Route 53~~ CloudFlare
 * ~~nginx as reverse proxy~~
-* ~~SSL using letsencrypt certificates~~
+* SSL using ~~letsencrypt certificates~~ CloudFlare
