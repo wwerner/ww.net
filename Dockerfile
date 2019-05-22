@@ -20,10 +20,10 @@ RUN ls -l build/libs
 # Stage 2: Build native GraalVM image
 # See resources/META-INF/native-image for details
 FROM oracle/graalvm-ce:latest as imager
-COPY --from=builder /home/gradle/build/libs/wwnet-*.jar app.jar
+COPY --from=builder /home/gradle/build/libs/wwnet-*.jar /app.jar
 
 RUN gu install native-image
-RUN native-image --no-server -cp app.jar
+RUN native-image --no-server -cp /app.jar
 
 
 # Stage 3: The actual application container
@@ -31,7 +31,6 @@ FROM frolvlad/alpine-glibc
 EXPOSE 8080
 
 VOLUME /tmp
-COPY --from=imager /build/libs/wwnet-*-all.jar app.jar
-RUN sh -c 'touch /app.jar'
+COPY --from=imager /wwnet /wwnet
 EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["/wwnet"]
