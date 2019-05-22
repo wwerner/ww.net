@@ -17,6 +17,6 @@ class Routes {
     @Bean
     fun router() = org.springframework.web.reactive.function.server.router {
         GET("/") { index }
-        resources("/**", ClassPathResource("static/"))
+        GET("/**") { index }
     }
 }
