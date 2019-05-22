@@ -2,7 +2,7 @@ micronaut:
   server:
     port: 8080
   application:
-    name: ww.net
+    name: wwnet
   router:
     static-resources:
       default:

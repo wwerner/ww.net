@@ -9,8 +9,8 @@ plugins {
 
 
 
-version "0.1"
-group "ww"
+version "0.0.1"
+group "net.wolfgangwerner"
 
 repositories {
     mavenCentral()
@@ -35,6 +35,11 @@ dependencies {
     compile "io.micronaut:micronaut-http-client"
     compile "javax.annotation:javax.annotation-api"
     compile "io.micronaut:micronaut-http-server-netty"
+
+    // GraalVM
+    compileOnly "com.oracle.substratevm:svm"
+    annotationProcessor "io.micronaut:micronaut-graal"
+
     kapt "io.micronaut:micronaut-inject-java"
     kapt "io.micronaut:micronaut-validation"
     kaptTest "io.micronaut:micronaut-inject-java"
@@ -75,6 +80,11 @@ compileTestKotlin {
 
 shadowJar {
     mergeServiceFiles()
+}
+
+task getDeps(type: Copy) {
+    from sourceSets.test.runtimeClasspath
+    into 'runtime/'
 }
 
 run.classpath += configurations.developmentOnly
