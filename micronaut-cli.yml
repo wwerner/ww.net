@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: net.wolfgangwerner.site
+---
+testFramework: spek
+sourceLanguage: kotlin

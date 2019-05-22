@@ -1,0 +1,11 @@
+micronaut:
+  server:
+    port: 8080
+  application:
+    name: ww.net
+  router:
+    static-resources:
+      default:
+        mapping: /**
+        paths:
+          - classpath:static
