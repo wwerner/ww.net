@@ -1,4 +1,5 @@
-FROM openjdk:8-jre-alpine
+FROM oracle/graalvm-ce:latest
+
 VOLUME /tmp
 ADD target/ww-net.jar app.jar
 RUN sh -c 'touch /app.jar'
