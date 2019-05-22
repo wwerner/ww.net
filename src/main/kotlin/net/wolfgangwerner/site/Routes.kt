@@ -2,21 +2,21 @@ package net.wolfgangwerner.site
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.io.ClassPathResource
+import org.springframework.http.MediaType
 import org.springframework.web.reactive.function.server.ServerResponse
-import org.springframework.web.reactive.function.server.router
-import java.net.URI
-
 
 @Configuration
 class Routes {
+    val index = ServerResponse
+        .ok()
+        .contentType(MediaType.TEXT_HTML)
+        .syncBody(
+            ClassPathResource("static/index.html"))
+
     @Bean
-    fun index() = router {
-        GET("/") {
-            ServerResponse.temporaryRedirect(
-                    URI.create("/index.html")).build()
-        }
+    fun router() = org.springframework.web.reactive.function.server.router {
+        GET("/") { index }
+        resources("/**", ClassPathResource("static/"))
     }
-
 }
-
-
