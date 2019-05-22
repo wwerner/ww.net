@@ -15,8 +15,7 @@ before_install:
   - chmod +x gradlew
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ];
-    then
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker build -t wernerw/ww-net:latest
     else
       docker build -t wernerw/ww-net:$TRAVIS_BRANCH
