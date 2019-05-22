@@ -15,10 +15,4 @@ before_install:
   - chmod +x gradlew
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker build -t wernerw/ww-net:latest
-    else
-      docker build -t wernerw/ww-net:$TRAVIS_BRANCH
-    fi
-    docker push wernerw/ww-net;
-    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  - docker build -t wernerw/ww-net:$TRAVIS_BRANCH && docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
