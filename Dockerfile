@@ -25,6 +25,7 @@ FROM oracle/graalvm-ce:latest as imager
 RUN gu install native-image
 COPY --from=builder /home/gradle/build/libs/wwnet-*.jar /app.jar
 RUN native-image --no-server -cp /app.jar
+RUN ls -l
 
 
 # Stage 3: The actual application container
