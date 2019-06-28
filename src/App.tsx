@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
+import WebProfile from "./components/WebProfile"
 import "./App.css";
 
 const App: React.FC = () => {
@@ -10,6 +11,7 @@ const App: React.FC = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <WebProfile></WebProfile>
         <a
           className="App-link"
           href="https://reactjs.org"
