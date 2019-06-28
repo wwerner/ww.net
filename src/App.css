@@ -1,5 +1,29 @@
+body {
+  margin: 0;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 20vh;
+  color: red;
+}
+
+.icons, a {
+            color: rgb(55, 55, 55);
+            padding: 2.5vh;
+        }
+        
+
+.content {
+  margin: 5vh;
+}
+
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -9,7 +33,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgb(230, 230, 230);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

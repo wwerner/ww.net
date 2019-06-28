@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import WebProfile from "./components/WebProfile"
 import "./App.css";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const App: React.FC = () => {
   return (
@@ -11,7 +12,9 @@ const App: React.FC = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <WebProfile></WebProfile>
+        <div className='icons'>
+        <WebProfile title='test' icon={faTwitter} url={new URL('https://twitter.com')}></WebProfile>
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"
