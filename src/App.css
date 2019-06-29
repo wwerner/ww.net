@@ -15,6 +15,10 @@ body {
   background-color: rgb(230, 230, 230);
 }
 
+.icons, a {
+  color: rgb(55, 55, 55);
+}
+
 @media (orientation: landscape) {
   .icons {
     font-size:24vh;
@@ -26,6 +30,3 @@ body {
     font-size:26vw;
   }
 }
-
-
-
