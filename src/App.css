@@ -11,19 +11,14 @@ body {
   color: red;
 }
 
-.icons, a {
-            color: rgb(55, 55, 55);
-            padding: 2.5vh;
-        }
-        
-
-.content {
-  margin: 5vh;
+.icons a {
+  color: rgb(55, 55, 55);
+  padding: 2.5vh;
 }
 
 .App {
-  text-align: center;
-
+  margin: 5vh;
+  background-color: rgb(230, 230, 230);
 }
 
 .App-logo {
