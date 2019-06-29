@@ -2,7 +2,8 @@ import React from "react";
 import WebProfile from "./components/WebProfile"
 import "./App.css";
 import { faTwitter, faXing, faGithub, faLinkedinIn, faStackOverflow, faKeybase, faDocker, faGoodreadsG, faCodepen } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faHatWizard,faSquareFull } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const profiles = [
   {t:'Twitter', i: faTwitter, u:'https://twitter.com/0xcafebabe'},
@@ -23,11 +24,13 @@ const profiles = [
 const App: React.FC = () => {
   return (
     <div className="App">
+      <div className="icons-box">
       <div className='icons'>
         { profiles.map((v) => {
           return <WebProfile title={v.t} icon={v.i} url={new URL(v.u)}></WebProfile>          
         })}
         </div>
+    </div>
     </div>
   );
 };
