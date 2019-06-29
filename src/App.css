@@ -1,23 +1,31 @@
 body {
   margin: 0;
 }
-.icons-box {
-  padding: 0.5em;
-  background-color: rgb(230, 230, 230);
-
-}
-.icons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-items: center;
-  font-size: 25vh;
-  background-color: rgb(230, 230, 230);
-}
-.svg-inline--fa {
-  transform: scale(1.05)
-}
 
 .App {
   margin: 5vh;
 }
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  justify-items: center;
+  background-color: rgb(230, 230, 230);
+}
+
+@media (orientation: landscape) {
+  .icons {
+    font-size:24vh;
+  }
+}
+
+@media (orientation: portrait) {
+  .icons {
+    font-size:26vw;
+  }
+}
+
+
+
