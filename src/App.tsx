@@ -37,12 +37,17 @@ class App extends Component<{},AppState>  {
 
   moreRainbow = () => {
     this.setState((state: AppState) => {
-      state.profiles.every((p) => {
-        if(!p.r) {p.r = true; return false;}
-        else return true;
-      })
+      let next = this.nextProfileToRainbow(state.profiles)
+      if(next) next.r = true;
       return state
     })
+  }
+  
+  nextProfileToRainbow(profiles: Profile[]) : Profile | undefined {
+    return profiles
+      .filter((p) => { return !p.r})
+      .sort(() => 0.5 - Math.random())
+      [0]
   }
 
   render() {
@@ -50,7 +55,7 @@ class App extends Component<{},AppState>  {
       <div className="App">
         <div className='icons'>
           { this.state.profiles.map((v) => {
-            return <WebProfile key={v.t} title={v.t} icon={v.i} url={new URL(v.u)} rainbowy={v.r}></WebProfile>
+            return <WebProfile key={v.t} title={v.t} icon={v.i} url={new URL(v.u)} rainbow={v.r}></WebProfile>
           })}
         </div>
         <div className="right"><button onClick={this.moreRainbow}>I can haz moar rainbow?</button></div>

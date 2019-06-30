@@ -7,12 +7,12 @@ interface WebProfileProps {
   title: string;
   url: URL;
   icon: string;
-  rainbowy: boolean;
+  rainbow: boolean;
 }
 
 class WebProfile extends Component<WebProfileProps> {
   render() {
-    const { title, icon, url, rainbowy } = this.props;
+    const { title, icon, url, rainbow } = this.props;
     return (
       <a
         href={url.href}
@@ -22,7 +22,7 @@ class WebProfile extends Component<WebProfileProps> {
       >
         <i
           className={
-            icon + " fa-fw" + (rainbowy ? " rainbow" : "")
+            icon + " fa-fw" + (rainbow ? " rainbow" : "")
           }
         ></i>
       </a>
