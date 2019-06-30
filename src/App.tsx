@@ -1,33 +1,63 @@
-import React from "react";
+import React,{ Component } from "react";
 import WebProfile from "./components/WebProfile"
 import "./App.css";
 
-const profiles = [
-  {t:'Twitter', i: 'fab fa-twitter', u:'https://twitter.com/0xcafebabe'},
-  {t:'GitHub', u:'https://github.com/wwerner', i:'fab fa-github'},
-  {t:'Docker Hub', u:'https://hub.docker.com/u/wernerw/', i: 'fab fa-docker'},
-  {t:'Xing', u:'https://www.xing.com/profile/Wolfgang_Werner3', i: 'fab fa-xing'},
-  {t:'LinkedIn', u:'https://www.linkedin.com/in/wolfgangwerner', i:'fab fa-linkedin-in'},
 
-  {t:'Stack Overflow',u:'https://stackoverflow.com/users/193637/wwerner', i:'fab fa-stack-overflow' },
-  {t:'Keybase', u:'https://keybase.io/wgw', i: 'fab fa-keybase'},
-  {t:'Sourcerer.io', u:'https://sourcerer.io/wwerner', i: 'fa fa-hat-wizard'},
-  {t:'Open PGP', u:'http://hkps.pool.sks-keyservers.net/pks/lookup?search=0x469967FA&fingerprint=on', i:'fa fa-envelope'},
+interface Profile {
+  t:string,
+  i: string,
+  u: string,
+  r: boolean,
+}
 
-  {t:'Goodreads', u:'https://www.goodreads.com/user/show/9593423-wolfgang', i: 'fab fa-goodreads'},
-  {t:'Code Sandbox', u:'https://codesandbox.io/u/wwerner', i: 'fab fa-codepen'},
-];
+interface AppState {
+  profiles: Profile[],
+}
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <div className='icons'>
-        { profiles.map((v) => {
-          return <WebProfile title={v.t} icon={v.i} url={new URL(v.u)}></WebProfile>
-        })}
+class App extends Component<{},AppState>  {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      profiles: [
+        {t:'Twitter', i: 'fab fa-twitter', u:'https://twitter.com/0xcafebabe', r:false},
+        {t:'GitHub', u:'https://github.com/wwerner', i:'fab fa-github', r:false},
+        {t:'Docker Hub', u:'https://hub.docker.com/u/wernerw/', i: 'fab fa-docker', r:false},
+        {t:'Xing', u:'https://www.xing.com/profile/Wolfgang_Werner3', i: 'fab fa-xing', r:false},
+        {t:'LinkedIn', u:'https://www.linkedin.com/in/wolfgangwerner', i:'fab fa-linkedin-in', r:false},
+      
+        {t:'Stack Overflow',u:'https://stackoverflow.com/users/193637/wwerner', i:'fab fa-stack-overflow', r:false },
+        {t:'Keybase', u:'https://keybase.io/wgw', i: 'fab fa-keybase', r:false},
+        {t:'Sourcerer.io', u:'https://sourcerer.io/wwerner', i: 'fa fa-hat-wizard', r:false},
+        {t:'Open PGP', u:'http://hkps.pool.sks-keyservers.net/pks/lookup?search=0x469967FA&fingerprint=on', i:'fa fa-envelope', r:false},
+      
+        {t:'Goodreads', u:'https://www.goodreads.com/user/show/9593423-wolfgang', i: 'fab fa-goodreads', r:false},
+        {t:'Code Sandbox', u:'https://codesandbox.io/u/wwerner', i: 'fab fa-codepen', r:false},
+    ]}
+  }
+
+  moreRainbow = () => {
+    this.setState((state: AppState) => {
+      state.profiles.every((p) => {
+        if(!p.r) {p.r = true; return false;}
+        else return true;
+      })
+      return state
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className='icons'>
+          { this.state.profiles.map((v) => {
+            return <WebProfile key={v.t} title={v.t} icon={v.i} url={new URL(v.u)} rainbowy={v.r}></WebProfile>
+          })}
+        </div>
+        <div className="right"><button onClick={this.moreRainbow}>I can haz moar rainbow?</button></div>
+
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default App;

@@ -7,24 +7,25 @@ interface WebProfileProps {
   title: string;
   url: URL;
   icon: string;
+  rainbowy: boolean;
 }
 
-interface WebProfileState {
-  isRainbowy: boolean;
-}
-
-class WebProfile extends Component<WebProfileProps, WebProfileState> {
-  constructor(props: WebProfileProps) {
-    super(props);
-    this.state = {isRainbowy: false};
-  }
-
+class WebProfile extends Component<WebProfileProps> {
   render() {
-    const { title, icon, url } = this.props;
+    const { title, icon, url, rainbowy } = this.props;
     return (
-        <a href={url.href} title={title} target="_blank" rel="noopener noreferrer">
-          <i className={icon + ' fa-fw' + ( this.state.isRainbowy ? ' rainbow' : '') } ></i>
-        </a>
+      <a
+        href={url.href}
+        title={title}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i
+          className={
+            icon + " fa-fw" + (rainbowy ? " rainbow" : "")
+          }
+        ></i>
+      </a>
     );
   }
 }
