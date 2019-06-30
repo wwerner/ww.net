@@ -4,10 +4,4 @@ jobs:
     machine: true
     steps:
       - checkout
-      # - run: |
-      #    docker login -u $DOCKER_USER -p $DOCKER_PASS
-
       - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
-
-      # deploy the image
-      # - run: docker push company/app:$CIRCLE_BRANCH
