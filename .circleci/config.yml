@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker run -d --name db company/proprietary-db:1.2.3
+
+      - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
+
+      # deploy the image
+      # - run: docker push company/app:$CIRCLE_BRANCH
