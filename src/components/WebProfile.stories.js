@@ -3,13 +3,21 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import WebProfile from "./WebProfile";
 
-import { faAllergies } from "@fortawesome/free-solid-svg-icons";
 
 storiesOf("WebProfile", module)
-  .add("all props", () => (
+  .add("standard", () => (
     <WebProfile
-      title="foo"
-      icon={faAllergies}
+      title="Foo"
+      icon='fab fa-github'
       url="https://twitter.com"
+      rainbow='false'
+    ></WebProfile>
+  ))
+  .add("rainbowy", () => (
+    <WebProfile
+      title="Foo"
+      icon='fab fa-github'
+      url="https://twitter.com"
+      rainbow='true'
     ></WebProfile>
   ));

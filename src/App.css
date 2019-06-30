@@ -18,13 +18,6 @@ body {
 .icons, a {
   color: rgb(55, 55, 55);
 }
-
-.right {
-  position: absolute;
-  right: 0;
-  margin-right: 3vh;
-}
-
 @media (orientation: landscape) {
   .icons {
     font-size:24vh;
@@ -36,3 +29,13 @@ body {
     font-size:26vw;
   }
 }
+
+button {
+  background:none;
+  color:inherit;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
+}
+button:focus {outline:0;}

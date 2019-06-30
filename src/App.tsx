@@ -43,8 +43,7 @@ class App extends Component<{},AppState>  {
   nextProfileToRainbow(profiles: Profile[]) : Profile | undefined {
     return profiles
       .filter((p) => { return !p.r})
-      .sort(() => 0.5 - Math.random())
-      [0]
+      .sort(() => 0.5 - Math.random())[0]
   }
 
   render() {
@@ -54,9 +53,16 @@ class App extends Component<{},AppState>  {
           { this.state.profiles.map((v) => {
             return <WebProfile key={v.t} title={v.t} icon={v.i} url={new URL(v.u)} rainbow={v.r}></WebProfile>
           })}
-        </div>
-        <div className="right"><button onClick={this.moreRainbow}>I can haz moar rainbow?</button></div>
 
+        <button
+          title="I can haz moar rainbow?"
+          onClick={this.moreRainbow}
+        >
+          <i
+            className="fa fa-question-circle fa-fw rainbow"
+          ></i>
+        </button>
+        </div>
       </div>
     );
   }
