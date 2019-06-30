@@ -1,0 +1,28 @@
+.rainbow {
+  background: linear-gradient(
+    60deg,
+    hsl(0, 75%, 50%) 10%,
+    hsl(20, 75%, 50%) 10%,
+    hsl(20, 75%, 50%) 25%,
+    hsl(50, 75%, 50%) 25%,
+    hsl(50, 75%, 50%) 40%,
+    hsl(130, 75%, 50%) 40%,
+    hsl(130, 75%, 50%) 55%,
+    hsl(200, 75%, 50%) 55%,
+    hsl(200, 75%, 50%) 70%,
+    hsl(260, 75%, 50%) 70%,
+    hsl(260, 75%, 50%) 85%,
+    hsl(0, 75%, 50%) 85%
+  );
+  color: #fff;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: 10s ani linear infinite;
+}
+
+@keyframes ani {
+  100% {
+    background-position: 100vw 0;
+  }
+}

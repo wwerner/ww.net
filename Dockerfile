@@ -1,16 +1,12 @@
-FROM maven:3.6.1-jdk-11-slim as builder
-WORKDIR /build
-COPY pom.xml .
-RUN mvn dependency:go-offline
+FROM node:12.5.0-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+RUN npm install
+COPY . /app
+RUN npm run build
 
-COPY src/ /build/src/
-RUN mvn package
-
-
-FROM oracle/graalvm-ce:latest
-
-VOLUME /tmp
-COPY --from=builder /build/target/ww-net.jar app.jar
-RUN sh -c 'touch /app.jar'
-EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM nginx:1.17-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
