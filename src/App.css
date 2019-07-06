@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-.App {
-  margin: 5vh;
-}
-
 .icons {
   display: flex;
   flex-direction: row;
@@ -19,14 +15,25 @@ body {
   color: rgb(55, 55, 55);
 }
 @media (orientation: landscape) {
+  .App {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:5vh;
+    max-width: 1024px;
+  }
+  
   .icons {
-    font-size:24vh;
+    font-size: 20vh;
   }
 }
 
 @media (orientation: portrait) {
+  .App {
+    margin: 5vh;
+  }
+
   .icons {
-    font-size:26vw;
+    font-size:18vh;
   }
 }
 
