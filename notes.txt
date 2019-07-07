@@ -22,6 +22,24 @@ cd ~
 ipfs init
 ipfs daemon &
 gcloud compute firewall-rules create allow-ipfs --allow tcp:8080,tcp:8081,tcp:4001,tcp:5001,udp:4002 --source-tags=ipfs --source-ranges=0.0.0.0/0 --description="allow ipfs traffic"
+sudo vi /etc/systemd/system/ipfs.service
+```
+[Unit]
+Description=IPFS Daemon
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ipfs daemon --enable-namesys-pubsub
+User=ec2-user
+
+[Install]
+WantedBy=multi-user.target
+```
+sudo systemctl daemon-reload
+sudo systemctl enable ipfs
+sudo systemctl start ipfs
+sudo systemctl status ipfs
 
 # Publish site
 ## Get & build
