@@ -1,0 +1,35 @@
+# Install prerequisites (starting from a plain GCP Debian Stretch image)
+## Node/Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get install apt-transport-https 
+sudo apt-get update && sudo apt-get install yarn
+curl -sL deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install nodejs
+yarn version
+sudo apt-get install git
+
+## IPFS
+### Install
+https://dist.ipfs.io/go-ipfs/v0.4.21/go-ipfs_v0.4.21_linux-amd64.tar.gz
+tar xvfz go-ipfs_v0.4.21_linux-amd64.tar.gz
+cd go-ipfs
+sudo ./install.sh
+ipfs help && cd .. && rm go-ipfs_v0.4.21_linux-amd64.tar.gz
+
+### Init
+cd ~
+ipfs init
+ipfs daemon &
+gcloud compute firewall-rules create allow-ipfs --allow tcp:8080,tcp:8081,tcp:4001,tcp:5001,udp:4002 --source-tags=ipfs --source-ranges=0.0.0.0/0 --description="allow ipfs traffic"
+
+# Publish site
+## Get & build
+git clone https://github.com/wwerner/ww.net.git
+cd ww.net
+yarn install
+yarn build 
+
+## Publish
+ipfs add -r build
+ipfs pin add -r build
