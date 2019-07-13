@@ -1,5 +1,6 @@
 FROM node:12.5.0-alpine as build
 WORKDIR /app
+RUN apk add git
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN yarn install
