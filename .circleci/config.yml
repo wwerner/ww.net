@@ -5,37 +5,15 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+      - setup_remote_docker:
+        docker_layer_caching: true
       - run:
           command: |
             yarn install
             yarn build
       # TODO: cache dependencies
-      - persist_to_workspace:
-          root: ~/workspace
-          paths:
-            - repo
-      - attach_workspace:
-          at: ~/workspace
-
-  docker-image:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - setup_remote_docker:
-        docker_layer_caching: true
-      - working_directory: ~/workspace/repo
-      - attach_workspace:
-          at: ~/workspace
-      - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
-
-  deploy-ipfs:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - working_directory: ~/workspace/repo
-      - attach_workspace:
-          at: ~/workspace
       - run:
           command: |
             npx jscli -h
             npx cfcli -h
+      - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
