@@ -51,3 +51,10 @@ yarn build
 ## Publish
 ipfs add -r build
 ipfs pin add -r build
+
+## Update DNS
+export CF_API_EMAIL=wolfgang.werner@mailbox.org
+export CF_API_DOMAIN=wolfgang-werner.net
+export CF_API_KEY=<API key> 
+
+npx cfcli -t TXT edit _dnslink.ipfs dnslink=/ipfs/<ipfs hash>/
