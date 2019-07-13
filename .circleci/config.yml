@@ -9,6 +9,7 @@ jobs:
         command: |
           yarn install
           yarn build
+      # TODO: cache dependencies
       - persist_to_workspace:
           root: ~/workspace
           paths:
@@ -36,3 +37,5 @@ jobs:
           at: ~/workspace
       - run:
           command: |
+            npx jscli -h
+            npx cfcli -h
