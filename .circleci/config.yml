@@ -14,6 +14,6 @@ jobs:
       # TODO: cache dependencies
       - run:
           command: |
-            npx jscli -h
+            npx jsipfs -h
             npx cfcli -h
       - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
