@@ -2,6 +2,7 @@
   "name": "ww.net",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@types/jest": "24.0.15",
     "@types/node": "12.0.10",
@@ -44,6 +45,8 @@
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9"
+    "@storybook/react": "^5.1.9",
+    "cloudflare-cli": "^3.2.4",
+    "ipfs": "^0.36.4"
   }
 }
