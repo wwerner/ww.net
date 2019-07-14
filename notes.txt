@@ -53,8 +53,15 @@ ipfs add -r build
 ipfs pin add -r build
 
 ## Update DNS
-export CF_API_EMAIL=wolfgang.werner@mailbox.org
-export CF_API_DOMAIN=wolfgang-werner.net
-export CF_API_KEY=<API key> 
+
 
 npx cfcli -t TXT edit _dnslink.ipfs dnslink=/ipfs/<ipfs hash>/
+
+
+# CI
+
+## Environment
+IPFS_NODE=35.206.98.136
+CF_API_EMAIL=wolfgang.werner@mailbox.org
+CF_API_DOMAIN=wolfgang-werner.net
+CF_API_KEY=<API key> 

@@ -7,13 +7,20 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
+      - add_ssh_keys:
+          fingerprints:
+            - "e7:16:bf:20:ac:9c:2b:a1:6b:62:23:ea:a7:c0:e2:79"
       - run:
+          name: Build
           command: |
             yarn install
             yarn build
       # TODO: cache dependencies
       - run:
+          name: Deploy
           command: |
-            npx jsipfs -h
+            ssh -N -L 5001:localhost:5001 wolfgang_werner@$IPFS_NODE &
+            HASH=`npx jsipfs add -r -Q --pin build/`
+            echo $HASH
             npx cfcli -h
       - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
