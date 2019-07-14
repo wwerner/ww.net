@@ -25,10 +25,11 @@ jobs:
       - run:
           name: Deploy
           command: |
-            ssh-keyscan -H $IPFS_NODE >> ~/.ssh/known_hosts
-            ssh -N -L 5001:localhost:5001 wolfgang_werner@$IPFS_NODE &
-            HASH=`npx jsipfs add -r -Q --pin build/`
-            echo $HASH
+            ssh -t wolfgang_werner@$IPFS_NODE "rm -rf deploy"
+            ssh -t wolfgang_werner@$IPFS_NODE "ipfs pin rm < .hash"
+            scp -r build/ wolfgang_werner@$IPFS_NODE:/home/wolfgang_werner/deploy 
+            ssh -t wolfgang_werner@$IPFS_NODE "ipfs add --pin -r -Q deploy > .hash"
+
             npx cfcli -h
       - setup_remote_docker:
           docker_layer_caching: true
