@@ -10,12 +10,20 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "e7:16:bf:20:ac:9c:2b:a1:6b:62:23:ea:a7:c0:e2:79"
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Build
           command: |
-            yarn install
+            yarn install --frozen-lockfile
             yarn build
-      # TODO: cache dependencies
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn            
       - run:
           name: Deploy
           command: |
