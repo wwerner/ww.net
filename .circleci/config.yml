@@ -27,7 +27,7 @@ jobs:
           command: |
             ssh-keyscan -H $IPFS_NODE >> ~/.ssh/known_hosts
             ssh -t wolfgang_werner@$IPFS_NODE "rm -rf deploy"
-            ssh -t wolfgang_werner@$IPFS_NODE "ipfs pin rm < .hash"
+            ssh -t wolfgang_werner@$IPFS_NODE "ipfs pin rm < .hash || true"
             scp -r build/ wolfgang_werner@$IPFS_NODE:/home/wolfgang_werner/deploy 
             ssh -t wolfgang_werner@$IPFS_NODE "ipfs add --pin -r -Q deploy > .hash"
             scp -r wolfgang_werner@$IPFS_NODE:/home/wolfgang_werner/.hash . 
