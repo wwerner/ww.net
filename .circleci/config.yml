@@ -33,6 +33,5 @@ jobs:
             scp -r $IPFS_NODE_USER@$IPFS_NODE:/home/wolfgang_werner/.hash . 
             HASH=`cat .hash`
             npx cfcli -t TXT edit _dnslink.ipfs dnslink=/ipfs/$HASH/
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - setup_remote_docker
       - run: docker build -t wwerner/ww.net:$CIRCLE_BRANCH .
