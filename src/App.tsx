@@ -28,6 +28,8 @@ class App extends Component<{},AppState>  {
         {t:'Open PGP', u:'http://hkps.pool.sks-keyservers.net/pks/lookup?search=0x469967FA&fingerprint=on', i:'fa fa-envelope', r:false},
         {t:'Goodreads', u:'https://www.goodreads.com/user/show/9593423-wolfgang', i: 'fab fa-goodreads', r:false},
         {t:'Code Sandbox', u:'https://codesandbox.io/u/wwerner', i: 'fab fa-codepen', r:false},
+        {t:"36°28'49.6N 5°07'52.5W" , u:'https://maps.google.com/?q=36.480433,-5.131258&entry=gps', i: 'fab fa-map-marker', r:false},
+
     ]}
   }
 
