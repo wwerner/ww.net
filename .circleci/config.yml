@@ -30,7 +30,7 @@ jobs:
             ssh -t $IPFS_NODE_USER@$IPFS_NODE "ipfs pin rm < .hash || true"
             scp -r build/ $IPFS_NODE_USER@$IPFS_NODE:/home/$IPFS_NODE_USER/deploy 
             ssh -t $IPFS_NODE_USER@$IPFS_NODE "ipfs add --pin -r -Q deploy > .hash"
-            scp -r $IPFS_NODE_USER@$IPFS_NODE:/home/wolfgang_werner/.hash . 
+            scp -r $IPFS_NODE_USER@$IPFS_NODE:/home/$IPFS_NODE_USER/.hash . 
             HASH=`cat .hash`
             npx cfcli -t TXT edit _dnslink.ipfs dnslink=/ipfs/$HASH/
       - setup_remote_docker
