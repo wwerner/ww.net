@@ -33,3 +33,4 @@ jobs:
             scp -r $IPFS_NODE_USER@$IPFS_NODE:/home/$IPFS_NODE_USER/.hash . 
             HASH=`cat .hash`
             npx cfcli -t TXT edit _dnslink.ipfs dnslink=/ipfs/$HASH/
+            npx cfcli -t TXT edit _dnslink.wolfgang.werner.net dnslink=/ipfs/$HASH/
