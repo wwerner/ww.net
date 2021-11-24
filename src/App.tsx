@@ -25,7 +25,7 @@ class App extends Component<{},AppState>  {
         {t:'LinkedIn', u:'https://www.linkedin.com/in/wolfgangwerner', i:'fab fa-linkedin-in', r:false},
         {t:'Stack Overflow',u:'https://stackoverflow.com/users/193637/wwerner', i:'fab fa-stack-overflow', r:false },
         {t:'Keybase', u:'https://keybase.io/wgw', i: 'fab fa-keybase', r:false},
-        {t:'Open PGP', u:'http://hkps.pool.sks-keyservers.net/pks/lookup?search=0x469967FA&fingerprint=on', i:'fa fa-envelope', r:false},
+        {t:'Open PGP', u:'https://keys.openpgp.org/search?q=21EA%C2%A0D18D%C2%A0238B%C2%A02D8E%C2%A099DC%C2%A0%C2%A02276%C2%A09F85%C2%A05CC3%C2%A04699%C2%A067FA', i:'fa fa-envelope', r:false},
         {t:'Goodreads', u:'https://www.goodreads.com/user/show/9593423-wolfgang', i: 'fab fa-goodreads', r:false},
         {t:'Code Sandbox', u:'https://codesandbox.io/u/wwerner', i: 'fab fa-codepen', r:false},
         {t:"YouTube" , u:'https://www.youtube.com/playlist?list=PLye53NExrIR27Z08uap4tI05A9xvN3exC', i: 'fab fa-youtube', r:false},
