@@ -29,6 +29,7 @@ class App extends Component<{},AppState>  {
         {t:'Goodreads', u:'https://www.goodreads.com/user/show/9593423-wolfgang', i: 'fab fa-goodreads', r:false},
         {t:'Code Sandbox', u:'https://codesandbox.io/u/wwerner', i: 'fab fa-codepen', r:false},
         {t:"YouTube" , u:'https://www.youtube.com/playlist?list=PLye53NExrIR27Z08uap4tI05A9xvN3exC', i: 'fab fa-youtube', r:false},
+        {t:"wwerner.eth" , u:'https://wwerner.eth', i: 'fab fa-ethereum', r:false},
 
     ]}
   }
